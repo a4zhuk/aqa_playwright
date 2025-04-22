@@ -1,6 +1,6 @@
 import test, { expect } from "@playwright/test";
 test.describe("[UI] [Smoke] Register", () => {
-    test("Check Registration with valid data", async ({ page }) =>{
+    test.only("Check Registration with valid data", async ({ page }) =>{
         let username = 'testname';
         let lastname = 'lastnametest';
         let useraddress ='test address';
@@ -27,5 +27,16 @@ test.describe("[UI] [Smoke] Register", () => {
         await page.locator("#password-confirm").fill(password)
         await page.locator("//button[@type='submit']").click()
         await expect(page.locator("//h2[@class='text-center']")).toContainText('Registration Details')
+        await expect(page.locator("#fullName")).toContainText(`${username} ${lastname}`)
+        await expect(page.locator("#address")).toContainText(useraddress)
+        await expect(page.locator("#email")).toContainText(email)
+        await expect(page.locator("#phone")).toContainText(phone)
+        await expect(page.locator("#country")).toContainText("Canada")
+        await expect(page.locator("#gender")).toContainText(gender)
+        await expect(page.locator("#language")).toContainText(language)
+        await expect(page.locator("#skills")).toContainText(`JavaScript`)
+        await expect(page.locator("#hobbies")).toContainText(`Movies`)
+        await expect(page.locator("#dateOfBirth")).toContainText(`11 May 1996`)
+        await  expect(page.locator("#password")).toHaveText("*".repeat(password.length))
     })
 })
