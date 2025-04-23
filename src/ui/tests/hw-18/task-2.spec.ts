@@ -1,6 +1,6 @@
 import test, { expect } from "@playwright/test";
 test.describe("[UI] [Smoke] Register", () => {
-    test.only("Check Registration with valid data", async ({ page }) =>{
+    test("Check Registration with valid data", async ({ page }) =>{
         let username = 'testname';
         let lastname = 'lastnametest';
         let useraddress ='test address';
