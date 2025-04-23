@@ -1,21 +1,4 @@
-/*
-Разработать тест со следующими шагами:
-
-  - открыть https://the-internet.herokuapp.com/
-  - перейти на страницу Dynamic Controls
-  - Дождаться появления кнопки Remove
-  - Завалидировать текста в заголовке страницы
-  - Чекнуть чекбокс
-  - Кликнуть по кнопке Remove
-  - Дождаться исчезновения чекбокса
-  - Проверить наличие кнопки Add
-  - Завалидировать текст It's gone!
-  - Кликнуть на кнопку Add
-  - Дождаться появления чекбокса
-  - Завалидировать текст It's back!
-  */
-
-  import test, { expect } from "@playwright/test";
+import test, { expect } from "@playwright/test";
 
   test.describe("[UI] [Heroku] Dynamic Controls", () => {
     test("Check Dynamic Controls page", async ({page}) => {
