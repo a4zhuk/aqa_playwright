@@ -5,14 +5,14 @@ import test, { expect } from "@playwright/test";
         await page.goto("https://the-internet.herokuapp.com/");
         await page.getByRole("link", {name: 'Dynamic Controls'}).click();
         await expect(page.getByRole("button", {name : "Remove"})).toBeVisible({timeout:10000});
-        await expect(page.getByRole("heading", {name : "Dynamic Controls"})).toContainText('Dynamic Controls');
+        await expect(page.getByRole("heading", {name : "Dynamic Controls"})).toHaveText('Dynamic Controls');
         await page.locator("//div/form/div/input[@type='checkbox']").check();
         await page.getByRole("button", {name : "Remove"}).click();
         await expect(page.locator("//div/form/div/input[@type='checkbox']")).toBeHidden()
         await expect(page.getByRole("button", {name: 'Add'})).toBeVisible();
-        await expect(page.locator("//form/p[@id='message']")).toContainText("It's gone!")
+        await expect(page.locator("//form/p[@id='message']")).toHaveText("It's gone!")
         await page.getByRole("button", {name: 'Add'}).click()
         await expect(page.locator("//div/form/div/input[@type='checkbox']")).toBeVisible({timeout:10000})
-        await expect(page.locator("//*[@id='message']")).toContainText("It's back!")
+        await expect(page.locator("//*[@id='message']")).toHaveText("It's back!")
     })
   })
