@@ -4,7 +4,7 @@ import { listOfProductsToAdd } from "../../../data/shopping_cart/products";
 import { promoCodesList } from "../../../data/shopping_cart/promocodes";
 test.describe("[UI] [Shopping Cart] e2e with all promocodes", () => {
   test("Successfull buing", async({page}) => {
-    page.goto("https://anatoly-karpovich.github.io/demo-shopping-cart/", {timeout: 10000});
+    page.goto("https://anatoly-karpovich.github.io/demo-shopping-cart/");
     for (const product of listOfProductsToAdd){
       await helpers.getAddToCardButton(product.productName, page).click()
     }
