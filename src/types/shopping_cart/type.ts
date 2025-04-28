@@ -1,6 +1,12 @@
-interface IProduct{
-    productName: string,
-    price: number
+interface IProduct {
+  productName: string;
+  price: number;
+}
+interface IPromocode {
+  code: string;
+  discount: number;
 }
 
-export {IProduct}
+type PromocodeList = IPromocode[];
+
+export { IProduct, IPromocode, PromocodeList };
