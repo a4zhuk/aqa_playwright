@@ -38,5 +38,11 @@ test.describe("[UI] [Sales Portal] [Customers]", () => {
     await expect(page.locator("//*/tbody/tr[1]/td[1]")).toHaveText(
       customer.email
     );
+    await expect(page.locator("//*/tbody/tr[1]/td[2]")).toHaveText(
+      customer.name
+    );
+    await expect(page.locator("//*/tbody/tr[1]/td[3]")).toHaveText(
+      customer.country
+    );
   });
 });
