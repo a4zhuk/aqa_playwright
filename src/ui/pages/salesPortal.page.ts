@@ -15,7 +15,7 @@ export abstract class SalesPortalPage {
     await expect(this.uniqueElement).toBeVisible();
     await this.waitForSpinner();
   }
-  async waitForOpenWithoutSpiner(){
+  async waitForOpenWithoutSpiner() {
     await expect(this.uniqueElement).toBeVisible();
   }
 

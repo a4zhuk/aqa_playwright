@@ -9,12 +9,19 @@ export class LoginPage extends SalesPortalPage {
 
   uniqueElement = this.loginButton;
 
- async fillCredentials(userData: IUser) {
-    await this.emailInput.fill(userData.email)
+  async fillCredentials(userData: IUser) {
+    await this.emailInput.fill(userData.email);
     await this.passwordInput.fill(userData.password);
   }
 
- async clickLoginButton() {
+  async clickLoginButton() {
     await this.loginButton.click();
+  }
+
+  async checkRememberMeCheckbox() {
+    await this.rememberMeCheckBox.check();
+  }
+  async uncheckRememberMeCheckbox() {
+    await this.rememberMeCheckBox.uncheck();
   }
 }
