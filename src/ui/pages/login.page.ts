@@ -17,11 +17,7 @@ export class LoginPage extends SalesPortalPage {
   async clickLoginButton() {
     await this.loginButton.click();
   }
-
-  async checkRememberMeCheckbox() {
-    await this.rememberMeCheckBox.check();
-  }
-  async uncheckRememberMeCheckbox() {
-    await this.rememberMeCheckBox.uncheck();
+  async checkRememberMe(souldBeChecked: boolean = true){
+    souldBeChecked ? await this.rememberMeCheckBox.check(): await this.rememberMeCheckBox.uncheck()
   }
 }

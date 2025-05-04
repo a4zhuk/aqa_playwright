@@ -19,10 +19,8 @@
   "homepage": "https://github.com/a4zhuk/aqa_playwright#readme",
   "description": "",
   "devDependencies": {
+    "@faker-js/faker": "^9.7.0",
     "@playwright/test": "^1.52.0",
     "@types/node": "^22.14.1"
-  },
-  "dependencies": {
-    "@faker-js/faker": "^9.7.0"
   }
 }

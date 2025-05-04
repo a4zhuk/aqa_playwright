@@ -1,12 +1,11 @@
 import { test, expect } from "@playwright/test";
 import { LoginPage } from "ui/pages/login.page";
-import { COUNTRIES } from "data/salesPortal/customers/countries.data";
 import { generateCustomerData } from "data/salesPortal/customers/generateCustomer.data";
 import { NOTIFICATIONS } from "data/salesPortal/notification.data";
 import { AddNewCustomerPage } from "ui/pages/customers/add-new-customer.page";
 import { CustomersPage } from "ui/pages/customers/customers.page";
 import { HomePage } from "ui/pages/home.page";
-import { setUser } from "data/salesPortal/user.data";
+import { getUserData } from "data/salesPortal/user.data";
 
 test.describe("[UI] [Sales Portal] [Customers]", () => {
   test("Create customer", async ({ page }) => {
@@ -18,8 +17,9 @@ test.describe("[UI] [Sales Portal] [Customers]", () => {
     await page.goto("https://anatoly-karpovich.github.io/aqa-course-project/#");
     await loginPage.waitForOpenWithoutSpiner();
 
-    const userData = setUser();
+    const userData = getUserData();
     await loginPage.fillCredentials(userData);
+    await loginPage.checkRememberMe(false)
     await loginPage.clickLoginButton();
 
     await homePage.waitForOpened();
