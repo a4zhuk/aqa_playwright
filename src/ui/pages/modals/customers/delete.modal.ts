@@ -1,6 +1,6 @@
 import { Modal } from "../modal.page";
 
-export class DeleteModal extends Modal {
+export class DeleteCustomerModal extends Modal {
   readonly uniqueElement = this.page.locator("div[role='dialog']");
   readonly title = this.page.locator(" Delete Customer");
   readonly warningText = this.page.locator(".modal-body");

@@ -2,10 +2,10 @@ import { ICustomer, ICustomerInTable } from "types/salesPortal/customer.types";
 import { SalesPortalPage } from "../salesPortal.page";
 import { COUNTRIES } from "data/salesPortal/customers/countries.data";
 import { FilterModal } from "../modals/customers/filter.modal";
-import { DeleteModal } from "../modals/customers/delete.modal";
+import { DeleteCustomerModal } from "../modals/customers/delete.modal";
 export class CustomersPage extends SalesPortalPage {
   readonly filterModal = new FilterModal(this.page);
-  readonly deleteModal = new DeleteModal(this.page);
+  readonly deleteModal = new DeleteCustomerModal(this.page);
 
   //Header menu
   readonly addNewCustomerButton = this.page.getByRole("button", {
