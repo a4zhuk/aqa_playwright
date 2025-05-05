@@ -1,10 +1,10 @@
 import { ICustomer } from "types/salesPortal/customer.types";
 import { SalesPortalPage } from "../salesPortal.page";
-import { DeleteModal } from "../modals/customers/delete.modal";
+import { DeleteCustomerModal } from "../modals/customers/delete.modal";
 
 export class EditCustomerPage extends SalesPortalPage {
   //Modals
-  deleteCustomerModal = new DeleteModal(this.page);
+  deleteCustomerModal = new DeleteCustomerModal(this.page);
 
   //inputs
   emailInput = this.page.locator("#inputEmail");
