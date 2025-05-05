@@ -6,7 +6,7 @@ import _ from "lodash";
 import { NOTIFICATIONS } from "data/salesPortal/notification.data";
 
 test.describe("[UI] [Sales Portal] [Customers]", async () => {
-  test("Check filtering without created user", async ({
+  test("Check user deletion", async ({
     page,
     homePage,
     customersPage,
