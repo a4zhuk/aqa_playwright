@@ -6,6 +6,7 @@ import { AddNewCustomerPage } from "ui/pages/customers/add-new-customer.page";
 import { CustomersPage } from "ui/pages/customers/customers.page";
 import { HomePage } from "ui/pages/home.page";
 import { getUserData } from "data/salesPortal/user.data";
+import { SALES_PORTAL_URL } from "config/environment";
 
 test.describe("[UI] [Sales Portal] [Customers]", () => {
   test("Create customer", async ({ page }) => {
@@ -14,12 +15,12 @@ test.describe("[UI] [Sales Portal] [Customers]", () => {
     const customerPage = new CustomersPage(page);
     const addNewCustomerPage = new AddNewCustomerPage(page);
 
-    await page.goto("https://anatoly-karpovich.github.io/aqa-course-project/#");
+    await page.goto(SALES_PORTAL_URL);
     await loginPage.waitForOpenWithoutSpiner();
 
     const userData = getUserData();
     await loginPage.fillCredentials(userData);
-    await loginPage.checkRememberMe(false)
+    await loginPage.checkRememberMe(false);
     await loginPage.clickLoginButton();
 
     await homePage.waitForOpened();
