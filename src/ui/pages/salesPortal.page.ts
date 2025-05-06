@@ -1,4 +1,5 @@
 import { expect, Locator, Page } from "@playwright/test";
+import { SALES_PORTAL_URL } from "config/environment";
 import { NOTIFICATIONS } from "data/salesPortal/notification.data";
 
 export abstract class SalesPortalPage {
@@ -25,5 +26,8 @@ export abstract class SalesPortalPage {
 
   async waitForNotification(text: string) {
     await expect(this.notification.last()).toHaveText(text);
+  }
+  async openPortal() {
+    this.page.goto(SALES_PORTAL_URL);
   }
 }
