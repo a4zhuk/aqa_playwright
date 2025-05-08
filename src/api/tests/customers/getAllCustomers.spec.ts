@@ -5,6 +5,7 @@ import { USER_LOGIN, USER_PASSWORD } from "config/environment";
 import { generateCustomerData } from "data/salesPortal/customers/generateCustomer.data";
 import { customersSchema } from "data/salesPortal/schemas/customers/customers.schema";
 import { STATUS_CODES } from "data/salesPortal/statusCodes";
+import _ from "lodash";
 import { ICustomer } from "types/salesPortal/customer.types";
 import { validateSchema } from "utils/salesPortal/validations/schemaValidation";
 
@@ -52,11 +53,11 @@ test.describe("[API], [Smoke], [Get all customers]", () => {
     expect.soft(allCustomersResponsBody.IsSuccess).toBe(true);
     expect
       .soft(
-        allCustomersResponsBody.Customers.find(
+        _.omit(allCustomersResponsBody.Customers.find(
           (customer: ICustomer) => customer.email === customerData.email
-        )
+        ), ['_id', 'createdOn'])
       )
-      .toMatchObject(createdCustomerResponseBody.Customer);
+      .toEqual(customerData);
 
     const deleteCustomerResponse = await request.delete(
       apiConfig.BASE_URL +
