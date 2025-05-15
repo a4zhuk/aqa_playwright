@@ -35,7 +35,5 @@ export interface INegativeCustomer {
 }
 export interface IPositiveCustomer {
   testName: string;
-  username: string;
-  password: string;
   data: object;
 }

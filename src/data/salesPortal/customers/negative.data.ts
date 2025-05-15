@@ -72,7 +72,7 @@ export const createCustomerNegativeData: INegativeCustomer[] = [
   },
   {
     testName: "Check customer creation without street",
-    data: _.omit(generateCustomerData(), ["stereet"]),
+    data: _.omit(generateCustomerData(), ["street"]),
     statusCode: STATUS_CODES.BAD_REQUEST,
     errorMessage: "Incorrect request body",
   },

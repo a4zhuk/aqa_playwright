@@ -8,17 +8,21 @@ import { ICredentials } from "types/salesPortal/signIn.types";
 import { validateResponse } from "utils/salesPortal/validations/responseValidation";
 
 test.describe("[API] [Negative] [Create]", () => {
+  let signInResponse;
+  let token = "";
+  test.beforeEach(async ({ singInController }) => {
+    const credentials: ICredentials = {
+      username: USER_LOGIN,
+      password: USER_PASSWORD,
+    };
+    signInResponse = await singInController.signIn(credentials);
+    token = signInResponse.headers["authorization"];
+    expect(signInResponse.status).toBe(STATUS_CODES.OK);
+  });
   createCustomerNegativeData.forEach((testData) => {
     test(
       testData.testName,
       async ({ singInController, customersController }) => {
-        const credentials: ICredentials = {
-          username: USER_LOGIN,
-          password: USER_PASSWORD,
-        };
-        const signInResponse = await singInController.signIn(credentials);
-        const token = signInResponse.headers["authorization"];
-
         const customerResponse = await customersController.create(
           testData.data as ICustomer,
           token
@@ -37,7 +41,7 @@ test.describe("[API] [Negative] [Create]", () => {
       }
     );
   });
-  test("Check customer creation using existing email", async ({
+  test("Should not create customer with existing email", async ({
     singInController,
     customersController,
   }) => {
