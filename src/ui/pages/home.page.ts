@@ -7,6 +7,21 @@ export class HomePage extends SalesPortalPage {
   readonly customersButton = this.page.getByRole("link", { name: "Customer" });
   readonly productsButton = this.page.getByRole("link", { name: "Products" });
   readonly ordersButton = this.page.getByRole("link", { name: "Orders" });
+  readonly numberOfOrdersThisYear = this.page.locator(
+    "//*[@id='total-orders-container']//p"
+  );
+  readonly numberOfTotalCustomers = this.page.locator(
+    "//*[@id='total-customers-container']//p"
+  );
+  readonly numberOfCanceledOrders = this.page.locator(
+    "//*[@id='canceled-orders-container']//p"
+  );
+  readonly sumOfTotalRevenue = this.page.locator(
+    "//*[@id='total-revenue-container']//p"
+  );
+  readonly sumOfAvgOrdersValue = this.page.locator(
+    "//*[@id='avg-orders-value-container']//p"
+  );
 
   readonly uniqueElement = this.title;
 

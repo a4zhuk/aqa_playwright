@@ -3,6 +3,7 @@ import { SalesPortalPage } from "../salesPortal.page";
 import { COUNTRIES } from "data/salesPortal/customers/countries.data";
 import { FilterModal } from "../modals/customers/filter.modal";
 import { DeleteCustomerModal } from "../modals/customers/delete.modal";
+import { customersSortField } from "types/salesPortal/api.types";
 export class CustomersPage extends SalesPortalPage {
   readonly filterModal = new FilterModal(this.page);
   readonly deleteModal = new DeleteCustomerModal(this.page);
@@ -18,6 +19,9 @@ export class CustomersPage extends SalesPortalPage {
   readonly searchChipButton = this.page.locator(
     'div[data-chip-customers="search"]'
   );
+
+  //Table
+  readonly table = this.page.locator("#table-customers");
 
   //Table headers
   readonly tableHeader = this.page.locator("#table-customers th div");
@@ -113,5 +117,28 @@ export class CustomersPage extends SalesPortalPage {
     await this.fillSearch(value);
     await this.clickSearch();
     await this.waitForOpened();
+  }
+  async open() {
+    await this.page.evaluate(async () => {
+      await (
+        window as typeof window & { renderCustomersPage: () => Promise<void> }
+      ).renderCustomersPage();
+    });
+  }
+  async clickTableHeader(header: customersSortField) {
+    switch (header) {
+      case "email":
+        await this.emailHeader.click();
+        break;
+      case "name":
+        await this.nameHeader.click();
+        break;
+      case "country":
+        await this.countryHeader.click();
+        break;
+      case "createdOn":
+        await this.createdOnHeader.click();
+        break;
+    }
   }
 }
