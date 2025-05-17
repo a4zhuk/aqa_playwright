@@ -1,5 +1,5 @@
 import { USER_LOGIN, USER_PASSWORD } from "config/environment";
-import { test as base } from "./pages.fixture";
+import { test as base } from "fixtures/controllets.fixture";
 
 interface IBusinessSteps {
   loginAsLocalUser(): Promise<void>;
