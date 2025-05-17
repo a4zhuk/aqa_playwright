@@ -22,8 +22,6 @@ test.describe("[UI] [Home] [Metrics]", async () => {
       IsSuccess: true,
     });
     await loginAsLocalUser();
-
-    await homePage.waitForOpened();
     expect(homePage.numberOfOrdersThisYear).toHaveText(totalOrderExpected);
   });
   test("Should display valid NewCustomers metric", async ({
@@ -43,8 +41,6 @@ test.describe("[UI] [Home] [Metrics]", async () => {
       IsSuccess: true,
     });
     await loginAsLocalUser();
-
-    await homePage.waitForOpened();
     expect(homePage.numberOfTotalCustomers).toHaveText(
       totalNewCustomersExpected
     );
@@ -66,8 +62,6 @@ test.describe("[UI] [Home] [Metrics]", async () => {
       IsSuccess: true,
     });
     await loginAsLocalUser();
-
-    await homePage.waitForOpened();
     expect(homePage.numberOfCanceledOrders).toHaveText(
       totalCanceledOrdersExpected
     );
@@ -86,8 +80,6 @@ test.describe("[UI] [Home] [Metrics]", async () => {
       IsSuccess: true,
     });
     await loginAsLocalUser();
-
-    await homePage.waitForOpened();
     expect(homePage.sumOfTotalRevenue).toHaveText(
       "$" + numeral(totalRevenueExpected).format("0.0a")
     );
@@ -109,8 +101,6 @@ test.describe("[UI] [Home] [Metrics]", async () => {
       IsSuccess: true,
     });
     await loginAsLocalUser();
-
-    await homePage.waitForOpened();
     expect(homePage.sumOfAvgOrdersValue).toHaveText(
       "$" + numeral(AvgOrdersValueExpected).format("0.0a")
     );
