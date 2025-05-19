@@ -1,3 +1,4 @@
+import { HomePage } from "ui/pages/home.page";
 import { IResponseFields } from "./api.types";
 
 interface ICustomerMetrics {
@@ -26,4 +27,12 @@ interface IMetrics {
 
 export interface IMetricsResponse extends IResponseFields {
   Metrics: IMetrics;
+}
+
+
+export interface IMertricsData {
+  testName: string,
+  data: IMetricsResponse,
+  expected: string, 
+  locator: keyof HomePage
 }
