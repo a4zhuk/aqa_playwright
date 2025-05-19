@@ -29,10 +29,9 @@ export interface IMetricsResponse extends IResponseFields {
   Metrics: IMetrics;
 }
 
-
 export interface IMertricsData {
-  testName: string,
-  data: IMetricsResponse,
-  expected: string, 
-  locator: keyof HomePage
+  testName: string;
+  data: IMetricsResponse;
+  expected: string;
+  locator: keyof HomePage;
 }
