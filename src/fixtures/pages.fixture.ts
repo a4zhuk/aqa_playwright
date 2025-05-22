@@ -1,5 +1,6 @@
-import { test as base } from "@playwright/test";
+import { test as base } from "fixtures/mock.fixture";
 import { AddNewCustomerPage } from "ui/pages/customers/add-new-customer.page";
+import { CustomerDetailsPage } from "ui/pages/customers/customer-details.page";
 import { CustomersPage } from "ui/pages/customers/customers.page";
 import { EditCustomerPage } from "ui/pages/customers/edit-customer.page";
 import { HomePage } from "ui/pages/home.page";
@@ -13,6 +14,7 @@ interface ISalesPortalPages {
   loginPage: LoginPage;
   editCustomerPage: EditCustomerPage;
   sideMenu: SideMenuComponent;
+  customerDetailsPage: CustomerDetailsPage;
 }
 export const test = base.extend<ISalesPortalPages>({
   homePage: async ({ page }, use) => {
@@ -32,6 +34,9 @@ export const test = base.extend<ISalesPortalPages>({
   },
   sideMenu: async ({ page }, use) => {
     await use(new SideMenuComponent(page));
+  },
+  customerDetailsPage: async ({ page }, use) => {
+    await use(new CustomerDetailsPage(page));
   },
 });
 export { expect } from "@playwright/test";

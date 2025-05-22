@@ -1,4 +1,4 @@
-import { test as base } from "@playwright/test";
+import { test as base } from "fixtures/pages.fixture";
 import { CustomersController } from "api/controllers/customers.controller";
 import { SingInContorller } from "api/controllers/signIn.controller";
 
