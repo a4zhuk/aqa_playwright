@@ -1,4 +1,4 @@
-import { Page, test as base } from "@playwright/test";
+import { Page, test as base, request} from "@playwright/test";
 import { apiConfig } from "config/api-config";
 import { STATUS_CODES } from "data/salesPortal/statusCodes";
 import {

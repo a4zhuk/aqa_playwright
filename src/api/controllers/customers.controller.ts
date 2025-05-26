@@ -1,3 +1,4 @@
+import { APIRequestContext } from "@playwright/test";
 import { RequestApi } from "api/apiClients/request";
 import { apiConfig } from "config/api-config";
 import { IRequestOptions } from "types/salesPortal/api.types";
@@ -9,7 +10,10 @@ import {
 import { convertRequestParams } from "utils/salesPortal/requestParams";
 
 export class CustomersController {
-  constructor(private request = new RequestApi()) {}
+  private request: RequestApi
+   constructor(context: APIRequestContext) {
+    this.request = new RequestApi(context);
+  }
 
   async create(body: ICustomer, token: string) {
     const options: IRequestOptions = {

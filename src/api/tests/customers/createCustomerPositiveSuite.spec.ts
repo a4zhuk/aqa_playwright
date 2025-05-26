@@ -2,7 +2,7 @@ import { USER_LOGIN, USER_PASSWORD } from "config/environment";
 import { createCustomerPositiveData } from "data/salesPortal/customers/positive.data";
 import { customerSchema } from "data/salesPortal/schemas/customers/customer.schema";
 import { STATUS_CODES } from "data/salesPortal/statusCodes";
-import { test, expect } from "fixtures/controllets.fixture";
+import { test, expect } from "fixtures/controllers.fixture";
 import { ICustomer } from "types/salesPortal/customer.types";
 import { ICredentials } from "types/salesPortal/signIn.types";
 import { validateResponse } from "utils/salesPortal/validations/responseValidation";

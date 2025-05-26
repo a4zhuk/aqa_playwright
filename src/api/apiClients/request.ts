@@ -1,9 +1,10 @@
-import { APIResponse, request } from "@playwright/test";
+import { APIRequestContext, APIResponse, request } from "@playwright/test";
 import { apiConfig } from "config/api-config";
 import _ from "lodash";
 import { IRequestOptions, IResponse } from "types/salesPortal/api.types";
 
 export class RequestApi {
+  constructor(private requestContext: APIRequestContext) {}
   private response: APIResponse | undefined;
 
   async send<T extends Object | null>(
