@@ -10,7 +10,7 @@ export class ProductsUISetvice {
     this.addProduct = new AddNewProduct(page);
   }
   async OpenAddProductPage() {
-    await this.productPage.AddNewProduct();
+    await this.productPage.addNewProduct();
     await this.addProduct.waitForOpened();
   }
 }

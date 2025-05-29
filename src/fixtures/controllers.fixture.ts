@@ -1,13 +1,12 @@
 import { test as base } from "fixtures/pages.fixture";
 import { CustomersController } from "api/controllers/customers.controller";
 import { SingInContorller } from "api/controllers/signIn.controller";
-import { ProdcutsController } from "api/controllers/products.controller";
-import { userInfo } from "os";
+import { ProductsController } from "api/controllers/products.controller";
 
 interface ISalesPortalControllers {
   customersController: CustomersController;
   singInController: SingInContorller;
-  productsController: ProdcutsController;
+  productsController: ProductsController;
 }
 
 export const test = base.extend<ISalesPortalControllers>({
@@ -18,7 +17,7 @@ export const test = base.extend<ISalesPortalControllers>({
     await use(new SingInContorller());
   },
   productsController: async ({ request }, use) => {
-    await use(new ProdcutsController(request));
+    await use(new ProductsController(request));
   },
 });
 export { expect } from "@playwright/test";

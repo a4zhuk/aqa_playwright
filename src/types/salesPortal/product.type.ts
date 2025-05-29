@@ -21,9 +21,9 @@ export interface IProductFromResponse extends IProduct {
 
 export interface IProductResponse extends IResponseFields {
   Product: IProductFromResponse;
-  sorting: {
+  sorting?: {
     sortOrder: sortDirection;
     sortField: ProductSortingFields;
   };
-  total: number;
+  total?: number;
 }

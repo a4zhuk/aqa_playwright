@@ -2,10 +2,9 @@ import { RequestApi } from "api/apiClients/request";
 import { APIRequestContext } from "@playwright/test";
 import { IRequestOptions } from "types/salesPortal/api.types";
 import { apiConfig } from "config/api-config";
-import { IProduct } from "types/shopping_cart/type";
 import { IProductResponse } from "types/salesPortal/product.type";
 
-export class ProdcutsController {
+export class ProductsController {
   private request: RequestApi;
   constructor(context: APIRequestContext) {
     this.request = new RequestApi(context);

@@ -1,27 +1,17 @@
-import { Page } from "@playwright/test";
-import { ModuleName } from "types/salesPortal/home.types";
+import { ModuleName, Pages } from "types/salesPortal/home.types";
+import { PageHolder } from "types/salesPortal/pageHolder.holder";
 import { CustomersPage } from "ui/pages/customers/customers.page";
 import { HomePage } from "ui/pages/home.page";
 import { ProductsPage } from "ui/pages/products/products.page";
 
-export class HomeUIService {
-  homePage: HomePage;
-  customersPage: CustomersPage;
-  productsPage: ProductsPage
-  constructor(private page: Page) {
-    this.customersPage = new CustomersPage(page);
-    this.homePage = new HomePage(page);
-    this.productsPage = new ProductsPage(page)
-  }
+export class HomeUIService extends PageHolder {
+  private homePage: HomePage = new HomePage(this.page);
+  private customersPage: CustomersPage = new CustomersPage(this.page);
+  private productsPage: ProductsPage = new ProductsPage(this.page);
 
   async openModule(moduleName: ModuleName) {
     await this.homePage.clickModuleButton(moduleName);
-    switch (moduleName) {
-      case "Customers":
-        await this.customersPage.waitForOpened();
-        break;
-      case "Products":
-        await this.productsPage.waitForOpened()
-    }
+    const page = (moduleName.toLowerCase() + "Page") as Pages;
+    await this[`${page}`].waitForOpened();
   }
 }
