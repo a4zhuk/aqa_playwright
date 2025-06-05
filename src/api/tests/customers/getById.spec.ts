@@ -1,4 +1,4 @@
-import { test, expect } from "fixtures/controllets.fixture";
+import { test, expect } from "fixtures/controllers.fixture";
 import { apiConfig } from "config/api-config";
 import { USER_LOGIN, USER_PASSWORD } from "config/environment";
 import { generateCustomerData } from "data/salesPortal/customers/generateCustomer.data";

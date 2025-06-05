@@ -1,4 +1,4 @@
-import { test, expect } from "fixtures/controllets.fixture";
+import { test, expect } from "fixtures/controllers.fixture";
 import { USER_LOGIN, USER_PASSWORD } from "config/environment";
 import { logInSchema } from "data/salesPortal/schemas/logIn/logIn.schema";
 import { STATUS_CODES } from "data/salesPortal/statusCodes";
