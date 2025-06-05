@@ -6,7 +6,7 @@ import { ICustomer, ICustomerResponse } from "types/salesPortal/customer.types";
 import { CustomersPage } from "ui/pages/customers/customers.page";
 import _ from "lodash";
 import { EditCustomerPage } from "ui/pages/customers/edit-customer.page";
-import { PageHolder } from "types/salesPortal/pageHolder.holder";
+import { PageHolder } from "ui/pages/pageHolder.page";
 
 export class EditCustomerUiService extends PageHolder {
   private editCustomerPage: EditCustomerPage = new EditCustomerPage(this.page);

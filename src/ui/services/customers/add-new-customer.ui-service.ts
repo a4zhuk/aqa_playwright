@@ -6,11 +6,13 @@ import { ICustomer, ICustomerResponse } from "types/salesPortal/customer.types";
 import { AddNewCustomerPage } from "ui/pages/customers/add-new-customer.page";
 import { CustomersPage } from "ui/pages/customers/customers.page";
 import _ from "lodash";
-import { PageHolder } from "types/salesPortal/pageHolder.holder";
+import { PageHolder } from "ui/pages/pageHolder.page";
 
-export class AddNewCustomerUiService extends PageHolder{
-  private addNewCustomerPage: AddNewCustomerPage  = new AddNewCustomerPage(this.page);
-  private customersPage: CustomersPage = new CustomersPage(this.page)
+export class AddNewCustomerUiService extends PageHolder {
+  private addNewCustomerPage: AddNewCustomerPage = new AddNewCustomerPage(
+    this.page
+  );
+  private customersPage: CustomersPage = new CustomersPage(this.page);
 
   async create(customData?: ICustomer) {
     const data = generateCustomerData(customData);

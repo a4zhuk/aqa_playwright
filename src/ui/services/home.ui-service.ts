@@ -1,5 +1,5 @@
 import { ModuleName, Pages } from "types/salesPortal/home.types";
-import { PageHolder } from "types/salesPortal/pageHolder.holder";
+import { PageHolder } from "ui/pages/pageHolder.page";
 import { CustomersPage } from "ui/pages/customers/customers.page";
 import { HomePage } from "ui/pages/home.page";
 import { ProductsPage } from "ui/pages/products/products.page";

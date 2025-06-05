@@ -1,4 +1,4 @@
-import { PageHolder } from "types/salesPortal/pageHolder.holder";
+import { PageHolder } from "ui/pages/pageHolder.page";
 import { AddNewCustomerPage } from "ui/pages/customers/add-new-customer.page";
 import { CustomerDetailsPage } from "ui/pages/customers/customer-details.page";
 import { CustomersPage } from "ui/pages/customers/customers.page";

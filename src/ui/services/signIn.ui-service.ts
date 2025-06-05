@@ -1,5 +1,5 @@
 import { USER_LOGIN, USER_PASSWORD } from "config/environment";
-import { PageHolder } from "types/salesPortal/pageHolder.holder";
+import { PageHolder } from "ui/pages/pageHolder.page";
 import { HomePage } from "ui/pages/home.page";
 import { LoginPage } from "ui/pages/login.page";
 
